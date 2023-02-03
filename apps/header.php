@@ -19,4 +19,5 @@
 <link href="assets/css/select2.min.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="assets/css/jquery-te-1.4.0.css">
+<link href="scss/main.css" rel="stylesheet">
 <?php include('footer.php'); ?>

@@ -5,53 +5,49 @@
     <div class="row">
       <!-- FORM Panel -->
       <div class="col-md-4">
-        <form action="" id="manage-plan">
-          <div class="card">
-            <div class="card-header">
-              Plan's Form
-            </div>
-            <div class="card-body">
-              <input type="hidden" name="id">
-              <div class="form-group">
-                <label class="control-label">Plan (months)</label>
-                <input type="number" name="months" id="" class="form-control text-right">
-              </div>
-              <div class="form-group">
-                <label class="control-label">Interest</label>
-                <div class="input-group">
-                  <input type="number" step="any" min="0" max="100" class="form-control text-right"
-                    name="interest_percentage" aria-label="Interest">
-                  <div class="input-group-append">
-                    <span class="input-group-text">%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Monthly Over due's Penalty</label>
-                <div class="input-group">
-                  <input type="number" step="any" min="0" max="100" class="form-control text-right"
-                    aria-label="Penalty percentage" name="penalty_rate">
-                  <div class="input-group-append">
-                    <span class="input-group-text">%</span>
-                  </div>
-                </div>
-              </div>
-
-
-
-            </div>
-
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-md-12">
-                  <button class="btn btn-primary col-sm-4 offset-md-2"> Save</button>
-                  <button class="btn btn-default col-sm-4" type="button" onclick="_reset()"> Cancel</button>
-                </div>
-              </div>
+  <form action="" id="manage-plan">
+    <div class="card">
+      <div class="card-header">
+        Plan's Form
+      </div>
+      <div class="card-body">
+        <input type="hidden" name="id">
+        <div class="form-group">
+          <label class="control-label">Plan (months)</label>
+          <input type="number" name="months" id="" class="form-control text-right">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Interest</label>
+          <div class="input-group">
+            <input type="number" step="any" min="0" max="100" class="form-control text-right"
+              name="interest_percentage" aria-label="Interest">
+            <div class="input-group-append">
+              <span class="input-group-text">%</span>
             </div>
           </div>
-        </form>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Monthly Over due's Penalty</label>
+          <div class="input-group">
+            <input type="number" step="any" min="0" max="100" class="form-control text-right"
+              aria-label="Penalty percentage" name="penalty_rate">
+            <div class="input-group-append">
+              <span class="input-group-text">%</span>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-primary col-sm-4 offset-md-2">Save</button>
+            <button class="btn btn-default col-sm-4" type="button" onclick="_reset()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
       <!-- FORM Panel -->
 
       <!-- Table Panel -->

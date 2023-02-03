@@ -19,7 +19,16 @@
 </head>
 <style>
 body {
-  background: #80808045;
+  background-image: url('images/stock.jpg');
+  background-size: cover;
+background-repeat: no-repeat;
+}
+
+.card {
+background-color: rgba(128, 128, 128, 0.5);
+}
+.card-body {
+  color: white;
 }
 
 .modal-dialog.large {

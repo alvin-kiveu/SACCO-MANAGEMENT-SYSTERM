@@ -72,7 +72,7 @@ div#login-right::before {
 
 
   <main id="main" class=" bg-light">
-    <div id="login-right">
+    <div id="#" class="container h-100 w-50 d-flex align-items-center justify-content-center">
       <div class="card col-md-10">
         <div class="card-body">
           <div class="logo">

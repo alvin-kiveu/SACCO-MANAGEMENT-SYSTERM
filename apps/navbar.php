@@ -1,10 +1,31 @@
 <style>
+      #sidebar {
+  display: none;
+}
+
+#hamburger-btn {
+  display: block;
+  float: right;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #000;
+  cursor: pointer;
+}
+
+#hamburger-btn i {
+  font-size: 1.5em;
+}
+
 </style>
-<nav id="sidebar" class='mx-lt-5 bg-white'>
+
+<nav id="sidebar" class="mx-lt-5 bg-white">
   <div class="sidebar-list">
 
     <a href="index.php?page=home" class="nav-item nav-home"><span class='icon-field'><i class="fa fa-home"></i></span>
       Home</a>
+    <!-- ... other navigation links ... -->
     <a href="index.php?page=borrowers" class="nav-item nav-borrowers"><span class='icon-field'><i
           class="fa fa-user-friends"></i></span> Borrowers</a>
     <a href="index.php?page=loans" class="nav-item nav-loans"><span class='icon-field'><i
@@ -23,8 +44,16 @@
 
     <?php endif; ?>
   </div>
-
 </nav>
+
 <script>
 $('.nav-<?php echo isset($_GET['page']) ? $_GET['page'] : '' ?>').addClass('active')
+
+$(document).ready(function() {
+  $("#hamburger-btn").click(function() {
+    $("#sidebar").slideToggle();
+  });
+});
+
+
 </script>
