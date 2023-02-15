@@ -29,7 +29,7 @@
             <div class="card-footer">
               <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-primary col-sm-4 offset-md-2"> Save</button>
+                  <button class="btn btn-primary col-sm-4"> Save</button>
                   <button class="btn btn-default col-sm-4" type="button" onclick="_reset()"> Cancel</button>
                 </div>
               </div>
