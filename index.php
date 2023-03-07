@@ -18,49 +18,51 @@
 
 </head>
 <style>
-body {
-  background:#ebebeb;
-  background-size: cover;
-background-repeat: no-repeat;
-}
+  body {
+    background: #ebebeb;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
-.card {
-background-color: white;
-}
-.card-body {
-  color: black;
-}
+  .card {
+    background-color: white;
+  }
 
-.modal-dialog.large {
-  width: 80% !important;
-  max-width: unset;
-}
+  .card-body {
+    color: black;
+  }
 
-.modal-dialog.mid-large {
-  width: 50% !important;
-  max-width: unset;
-}
+  .modal-dialog.large {
+    width: 80% !important;
+    max-width: unset;
+  }
 
-a{
-  text-decoration: none !important;
-}
+  .modal-dialog.mid-large {
+    width: 50% !important;
+    max-width: unset;
+  }
 
-.select2-container {
+  a {
+    text-decoration: none !important;
+  }
+
+  .select2-container {
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
     position: relative;
     vertical-align: middle;
-}
-.modal option {
-  position: relative;
-  z-index: 100;
-  background-color: aqua;
+  }
 
-}
-
-
-
+  select 
+  {
+    padding: 10%;
+    width: 100%;
+    height: 20px;
+    color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+  }
 </style>
 
 <body>
@@ -107,8 +109,7 @@ a{
         <div class="modal-body">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id='submit'
-            onclick="$('#uni_modal form').submit()">Save</button>
+          <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
       </div>
@@ -116,75 +117,75 @@ a{
   </div>
 </body>
 <script>
-window.start_load = function() {
-  $('body').prepend('<di id="preloader2"></di>')
-}
-window.end_load = function() {
-  $('#preloader2').fadeOut('fast', function() {
-    $(this).remove();
-  })
-}
+  window.start_load = function() {
+    $('body').prepend('<di id="preloader2"></di>')
+  }
+  window.end_load = function() {
+    $('#preloader2').fadeOut('fast', function() {
+      $(this).remove();
+    })
+  }
 
-window.uni_modal = function($title = '', $url = '', $size = "") {
-  start_load()
-  $.ajax({
-    url: $url,
-    error: err => {
-      console.log()
-      alert("An error occured")
-    },
-    success: function(resp) {
-      if (resp) {
-        $('#uni_modal .modal-title').html($title)
-        $('#uni_modal .modal-body').html(resp)
-        if ($size != '') {
-          $('#uni_modal .modal-dialog').addClass($size)
-        } else {
-          $('#uni_modal .modal-dialog').removeAttr("class").addClass("modal-dialog modal-md")
+  window.uni_modal = function($title = '', $url = '', $size = "") {
+    start_load()
+    $.ajax({
+      url: $url,
+      error: err => {
+        console.log()
+        alert("An error occured")
+      },
+      success: function(resp) {
+        if (resp) {
+          $('#uni_modal .modal-title').html($title)
+          $('#uni_modal .modal-body').html(resp)
+          if ($size != '') {
+            $('#uni_modal .modal-dialog').addClass($size)
+          } else {
+            $('#uni_modal .modal-dialog').removeAttr("class").addClass("modal-dialog modal-md")
+          }
+          $('#uni_modal').modal('show')
+          end_load()
         }
-        $('#uni_modal').modal('show')
-        end_load()
       }
-    }
-  })
-}
-window._conf = function($msg = '', $func = '', $params = []) {
-  $('#confirm_modal #confirm').attr('onclick', $func + "(" + $params.join(',') + ")")
-  $('#confirm_modal .modal-body').html($msg)
-  $('#confirm_modal').modal('show')
-}
-window.alert_toast = function($msg = 'TEST', $bg = 'success') {
-  $('#alert_toast').removeClass('bg-success')
-  $('#alert_toast').removeClass('bg-danger')
-  $('#alert_toast').removeClass('bg-info')
-  $('#alert_toast').removeClass('bg-warning')
+    })
+  }
+  window._conf = function($msg = '', $func = '', $params = []) {
+    $('#confirm_modal #confirm').attr('onclick', $func + "(" + $params.join(',') + ")")
+    $('#confirm_modal .modal-body').html($msg)
+    $('#confirm_modal').modal('show')
+  }
+  window.alert_toast = function($msg = 'TEST', $bg = 'success') {
+    $('#alert_toast').removeClass('bg-success')
+    $('#alert_toast').removeClass('bg-danger')
+    $('#alert_toast').removeClass('bg-info')
+    $('#alert_toast').removeClass('bg-warning')
 
-  if ($bg == 'success')
-    $('#alert_toast').addClass('bg-success')
-  if ($bg == 'danger')
-    $('#alert_toast').addClass('bg-danger')
-  if ($bg == 'info')
-    $('#alert_toast').addClass('bg-info')
-  if ($bg == 'warning')
-    $('#alert_toast').addClass('bg-warning')
-  $('#alert_toast .toast-body').html($msg)
-  $('#alert_toast').toast({
-    delay: 3000
-  }).toast('show');
-}
-$(document).ready(function() {
-  $('#preloader').fadeOut('fast', function() {
-    $(this).remove();
+    if ($bg == 'success')
+      $('#alert_toast').addClass('bg-success')
+    if ($bg == 'danger')
+      $('#alert_toast').addClass('bg-danger')
+    if ($bg == 'info')
+      $('#alert_toast').addClass('bg-info')
+    if ($bg == 'warning')
+      $('#alert_toast').addClass('bg-warning')
+    $('#alert_toast .toast-body').html($msg)
+    $('#alert_toast').toast({
+      delay: 3000
+    }).toast('show');
+  }
+  $(document).ready(function() {
+    $('#preloader').fadeOut('fast', function() {
+      $(this).remove();
+    })
   })
-})
-$('.datetimepicker').datetimepicker({
-  format: 'Y/m/d H:i',
-  startDate: '+3d'
-})
-$('.select2').select2({
-  placeholder: "Please select here",
-  width: "100%"
-})
+  $('.datetimepicker').datetimepicker({
+    format: 'Y/m/d H:i',
+    startDate: '+3d'
+  })
+  $('.select2').select2({
+    placeholder: "Please select here",
+    width: "100%"
+  })
 </script>
 
 <?php include 'footer.php' ?>

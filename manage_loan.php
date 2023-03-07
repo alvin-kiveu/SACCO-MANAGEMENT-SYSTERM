@@ -12,13 +12,12 @@ if (isset($_GET['id'])) {
     <form action="" id="loan-application">
       <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : '' ?>">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" stye="z-index:1;">
           <label class="control-label">Borrower</label>
           <?php
 					$borrower = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM borrowers order by concat(lastname,', ',firstname,' ',middlename) asc ");
 					?>
-          <select name="borrower_id" id="borrower_id" class="custom-select browser-default select2">
-            <option value=""></option>
+          <select  name="borrower_id" id="borrower_id" class="custom-select">
             <?php while ($row = $borrower->fetch_assoc()) : ?>
             <option value="<?php echo $row['id'] ?>"
               <?php echo isset($borrower_id) && $borrower_id == $row['id'] ? "selected" : '' ?>>
@@ -31,8 +30,7 @@ if (isset($_GET['id'])) {
           <?php
 					$type = $conn->query("SELECT * FROM loan_types order by `type_name` desc ");
 					?>
-          <select name="loan_type_id" id="loan_type_id" class="custom-select browser-default select2">
-            <option value=""></option>
+          <select name="loan_type_id" id="loan_type_id" class="custom-select">
             <?php while ($row = $type->fetch_assoc()) : ?>
             <option value="<?php echo $row['id'] ?>"
               <?php echo isset($loan_type_id) && $loan_type_id == $row['id'] ? "selected" : '' ?>>
@@ -49,8 +47,7 @@ if (isset($_GET['id'])) {
           <?php
 					$plan = $conn->query("SELECT * FROM loan_plan order by `months` desc ");
 					?>
-          <select name="plan_id" id="plan_id" class="custom-select browser-default select2">
-            <option value=""></option>
+          <select name="plan_id" id="plan_id" class="custom-select">
             <?php while ($row = $plan->fetch_assoc()) : ?>
             <option value="<?php echo $row['id'] ?>"
               <?php echo isset($plan_id) && $plan_id == $row['id'] ? "selected" : '' ?>
@@ -70,7 +67,7 @@ if (isset($_GET['id'])) {
         </div>
       </div>
       <div class="row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
           <label class="control-label">Purpose</label>
           <textarea name="purpose" id="" cols="30" rows="2"
             class="form-control"><?php echo isset($purpose) ? $purpose : '' ?></textarea>
@@ -78,7 +75,7 @@ if (isset($_GET['id'])) {
 
         <div class="form-group col-md-4  .justify-content-center">
           <label class="control-label">&nbsp;</label>
-          <button class="btn btn-primary btn-block align-self-end" type="button" id="calculate">Calculate</button>
+          <!-- <button class="btn btn-primary btn-block align-self-end" type="button" id="calculate">ADD NEW LOAN</button> -->
         </div>
       </div>
       <div id="calculation_table">
