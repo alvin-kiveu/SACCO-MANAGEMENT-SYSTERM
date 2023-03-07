@@ -78,16 +78,17 @@ div#login-right::before {
           <div class="logo">
             <img src="assets/img/logo.png" style="border-radius:50%;" width="200px">
           </div>
+          <hr/>
           <form id="login-form">
             <div class="form-group">
               <label for="username" class="control-label">Username</label>
-              <input type="text" id="username" name="username" class="form-control">
+              <input type="text" id="username" name="username" placeholder="Enter Username" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="password" class="control-label">Password</label>
-              <input type="password" id="password" name="password" class="form-control">
+              <input type="password" id="password" name="password" placeholder="Enter your password" class="form-control" required>
             </div>
-            <center><button class="btn btn-wave col-md-4 btn-primary">Login</button></center>
+            <center><button class="btn btn-wave col-md-12 btn-primary">Login</button></center>
             <br>
 
           </form>

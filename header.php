@@ -20,4 +20,10 @@
 <link href="assets/css/style.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="assets/css/jquery-te-1.4.0.css">
 <link href="scss/main.css" rel="stylesheet">
-<?php include('footer.php'); ?>
+<meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no">
+  <meta data-react-helmet="true" name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  </meta>
+  <?php include('footer.php'); ?>

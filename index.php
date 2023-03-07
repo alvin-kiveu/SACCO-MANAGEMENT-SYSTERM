@@ -19,16 +19,16 @@
 </head>
 <style>
 body {
-  background-image: url('images/stock.jpg');
+  background:#ebebeb;
   background-size: cover;
 background-repeat: no-repeat;
 }
 
 .card {
-background-color: rgba(128, 128, 128, 0.5);
+background-color: white;
 }
 .card-body {
-  color: white;
+  color: black;
 }
 
 .modal-dialog.large {
@@ -40,6 +40,27 @@ background-color: rgba(128, 128, 128, 0.5);
   width: 50% !important;
   max-width: unset;
 }
+
+a{
+  text-decoration: none !important;
+}
+
+.select2-container {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+}
+.modal option {
+  position: relative;
+  z-index: 100;
+  background-color: aqua;
+
+}
+
+
+
 </style>
 
 <body>

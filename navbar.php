@@ -1,6 +1,6 @@
 <style>
       #sidebar {
-  display: none;
+  display: block;
 }
 
 #hamburger-btn {
