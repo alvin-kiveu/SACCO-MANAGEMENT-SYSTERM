@@ -27,6 +27,7 @@
               <th class="text-center">Borrower</th>
               <th class="text-center">Loan Details</th>
               <th class="text-center">Next Payment Details</th>
+              <th class="text-center">Print</th>
               <th class="text-center">Status</th>
               <th class="text-center">Action</th>
             </tr>
@@ -72,9 +73,13 @@
                 <p>Loan type :<b><?php echo $type_arr[$row['loan_type_id']] ?></b></p>
                 <p>Plan :<b><?php echo $plan_arr[$row['plan_id']]['plan'] ?></b></p>
                 <p>Amount :<b><?php echo $row['amount'] ?></b></p>
+                <p>Added Amount
+                  :<b><?php echo number_format($row['amount'] * ($plan_arr[$row['plan_id']]['interest_percentage'] / 100)); ?></b></p>
                 <p>Total Payable Amount
-                  :<b><?php echo number_format($monthly * $plan_arr[$row['plan_id']]['months'], 2) ?></b></p>
-                <p>Monthly Payable Amount: <b><?php echo number_format($monthly, 2) ?></b></p>
+                  :<b><?php echo  number_format($monthly * $plan_arr[$row['plan_id']]['months'], 2); 
+                  $totalpayableamount = $monthly * $plan_arr[$row['plan_id']]['months']
+                  ?></b></p>
+                <!-- <p>Monthly Payable Amount: <b><?php //echo number_format($monthly, 2) ?></b></p> -->
                 <p>Overdue Payable Amount: <b><?php echo number_format($penalty, 2) ?></b></p>
                 <?php if ($row['status'] == 2 || $row['status'] == 3) : ?>
                 <p>Date Released: <b><?php echo date("M d, Y", strtotime($row['date_released'])) ?></b></p>
@@ -89,10 +94,15 @@
                 <p>Penalty :<b><?php echo $add = (date('Ymd', strtotime($next)) < date("Ymd")) ?  $penalty : 0; ?></b>
                 </p>
                 <p>Payable Amount :<b><?php echo number_format($monthly + $add, 2) ?></b></p>
+                <!-- <p>Paid Amount : <b> <?php //echo $row['amountpaid']; ?></b></p>
+                <p>Remaining Amount : <b> <?php //echo (int)$totalpayableamount - $row['amountpaid']; ?></b></p> -->
                 <?php else : ?>
                 N/a
                 <?php endif; ?>
-              </td>
+                </td>
+                <td>
+                  <a href="print.php?refno=<?php echo $row['ref_no']; ?>" class="btn btn-info edit_loan"><i class="fa fa-print"></i></a>
+                </td>
               <td class="text-center">
                 <?php if ($row['status'] == 0) : ?>
                 <span class="badge badge-warning">For Approval</span>

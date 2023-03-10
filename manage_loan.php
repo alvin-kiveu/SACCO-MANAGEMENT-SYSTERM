@@ -91,9 +91,6 @@ if (isset($_GET['id'])) {
             <?php if ($status != '4') : ?>
             <option value="2" <?php echo $status == 2 ? "selected" : '' ?>>Released</option>
             <?php endif ?>
-            <?php if ($status == '2') : ?>
-            <option value="3" <?php echo $status == 3 ? "selected" : '' ?>>Complete</option>
-            <?php endif ?>
             <?php if ($status != '2') : ?>
             <option value="4" <?php echo $status == 4 ? "selected" : '' ?>>Denied</option>
             <?php endif ?>
@@ -158,9 +155,24 @@ $('#loan-application').submit(function(e) {
     method: "POST",
     data: $(this).serialize(),
     success: function(resp) {
-      if (resp == 1) {
+      if (resp == '1') {
         $('.modal').modal('hide')
-        alert_toast("Loan Data successfully saved.", "success")
+        alert_toast("Loan added successfully.", "success")
+        setTimeout(function() {
+          location.reload();
+        }, 1500)
+      }else if(resp == "2"){
+        alert_toast("The borrower has a exiting loan.", "danger")
+        setTimeout(function() {
+          location.reload();
+        }, 1500)
+      }else if(resp == "3"){
+        alert_toast("You have exceeded loan limit", "danger")
+        setTimeout(function() {
+          location.reload();
+        }, 1500)
+      }else{
+        alert_toast("Error saving data. ", "danger")
         setTimeout(function() {
           location.reload();
         }, 1500)
