@@ -34,11 +34,10 @@
               <td>
                 <?php echo $row['username'] ?>
               </td>
-              <td>
-                      <a class="dropdown-item edit_user" href="javascript:void(0)"
-                        data-id='<?php echo $row['id'] ?>'>Edit</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item delete_user" href="javascript:void(0)"
+              <td class='d-flex justify-content-center'>
+                      <a style='color:green; font-weight: 600;' class="dropdown-item edit_user" href="javascript:void(0)"
+                        data-id='<?php echo $row['id'] ?>'>Edit</a> 
+                      <a style='color:red; font-weight: 600;' class="dropdown-item delete_user" href="javascript:void(0)"
                         data-id='<?php echo $row['id'] ?>'>Delete</a>
               </td>
             </tr>

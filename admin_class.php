@@ -280,6 +280,8 @@ class Action
 
 	function delete_user()
 	{
+		extract($_POST);
+		$delete = $this->db->query("DELETE FROM users where id = " . $id);
 		return 1;
 	}
 
